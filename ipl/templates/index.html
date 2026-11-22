@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>IPL Winner Predictor</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        form{
+            background: white;
+            width: 400px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        select{
+            width: 95%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button{
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover{
+            background-color: darkblue;
+        }
+
+        h1{
+            color: darkblue;
+        }
+
+        h2{
+            color: green;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>IPL Winning Team Predictor</h1>
+
+    <form method="POST">
+
+        <!-- TEAM 1 -->
+        <select name="team1" required>
+
+            <option value="">Select Team 1</option>
+
+            {% for team in teams %}
+
+                <option value="{{ team }}">{{ team }}</option>
+
+            {% endfor %}
+
+        </select>
+
+        <!-- TEAM 2 -->
+        <select name="team2" required>
+
+            <option value="">Select Team 2</option>
+
+            {% for team in teams %}
+
+                <option value="{{ team }}">{{ team }}</option>
+
+            {% endfor %}
+
+        </select>
+
+        <!-- TOSS WINNER -->
+        <select name="toss_winner" required>
+
+            <option value="">Select Toss Winner</option>
+
+            {% for team in teams %}
+
+                <option value="{{ team }}">{{ team }}</option>
+
+            {% endfor %}
+
+        </select>
+
+        <!-- TOSS DECISION -->
+        <select name="toss_decision" required>
+
+            <option value="">Select Toss Decision</option>
+
+            <option value="bat">Bat</option>
+
+            <option value="field">Field</option>
+
+        </select>
+
+        <!-- VENUE -->
+        <select name="venue" required>
+
+            <option value="">Select Venue</option>
+
+            {% for venue in venues %}
+
+                <option value="{{ venue }}">{{ venue }}</option>
+
+            {% endfor %}
+
+        </select>
+
+        <button type="submit">
+            Predict Winner
+        </button>
+
+    </form>
+
+    <h2>{{ result }}</h2>
+
+</body>
+
+</html>
